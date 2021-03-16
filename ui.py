@@ -24,7 +24,7 @@ def load_model():
     global vocab
     global df, dfs
     
-    df = pd.read_csv("balanced_review.csv") # this dataset is used for model building but not in this file   
+    df = pd.read_csv("balanced_review.csv")   
     dfs = pd.read_csv("scrappedReviews.csv")   
        
     
@@ -50,7 +50,6 @@ def create_app_ui():
     bd=[]
     for i in range (0,len(dfs)):
         bd.append(check_review(dfs["reviews"].values[i])[0])
-    #values = [len(df[df.Positivity == 1]), len(df[df.Positivity == 0])]
     dfs["positivity"] = bd
     values = [len(dfs[dfs.positivity == 1]), len(dfs[dfs.positivity == 0])]
     labels = ['Positive Reviews', 'Negative Reviews']
